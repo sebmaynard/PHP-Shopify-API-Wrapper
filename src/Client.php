@@ -76,7 +76,12 @@ class Client
                 "type" => "string",
                 "location" => "header",
                 "description" => "The Auth Token."
-			]
+			],
+            "page_info" => [
+                "type" => "string",
+                "location" => "uri",
+                "required" => false,
+            ],
         ];
 
     /**
@@ -223,10 +228,12 @@ class Client
         foreach ($service as $section => $set) {
             if ($section == 'operations') {
                 // add global parameters to the operation parameters
-                foreach ($set as &$op)
+                foreach ($set as &$op) {
                     $op['parameters'] = isset($op['parameters'])
                                     ? $op['parameters'] + $this->globalParams
                                     : $this->globalParams;
+                    $op["uri"] = str_replace("/admin/", "/admin/api/2020-01/", $op["uri"]);
+                }
             }
             $description[$section] = $description[$section] + $set;
         }

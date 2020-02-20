@@ -92,6 +92,12 @@ return array(
     "models" => array(
         "defaultJsonResponse" => array(
             "type" => "object",
+            "properties" => [
+                "Link" => [
+                    "location" => "header",
+                    "type" => "string",
+                ]
+            ],
             "additionalProperties" => array(
                 "location" => "json",
             )
