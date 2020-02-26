@@ -79,7 +79,7 @@ class Client
 			],
             "page_info" => [
                 "type" => "string",
-                "location" => "uri",
+                "location" => "query",
                 "required" => false,
             ],
         ];
