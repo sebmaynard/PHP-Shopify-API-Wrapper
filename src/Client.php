@@ -232,7 +232,7 @@ class Client
                     $op['parameters'] = isset($op['parameters'])
                                     ? $op['parameters'] + $this->globalParams
                                     : $this->globalParams;
-                    $op["uri"] = str_replace("/admin/", "/admin/api/2020-01/", $op["uri"]);
+                    $op["uri"] = str_replace("/admin/", "/admin/api/2021-04/", $op["uri"]);
                 }
             }
             $description[$section] = $description[$section] + $set;
